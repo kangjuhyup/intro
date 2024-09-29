@@ -1,0 +1,53 @@
+@keyframes walkDown {
+  0% {
+    background-position: 0 0;
+  }
+  33% {
+    background-position: -16px 0;
+  }
+  66% {
+    background-position: -32px 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes walkUp {
+  0% {
+    background-position: 0 -18px;
+  }
+  33% {
+    background-position: -16px -18px;
+  }
+  66% {
+    background-position: -32px -18px;
+  }
+  100% {
+    background-position: 0 -18px;
+  }
+}
+
+.container {
+  position: fixed;
+  bottom: 0;
+  left: 50%; /* 가로 중앙에 배치 */
+  transform: translateX(-50%);
+}
+
+.sprite {
+  width: 16px; /* 각 프레임의 너비 */
+  height: 18px; /* 각 프레임의 높이 */
+  background-image: url("/sprite/walk.png"); /* 스프라이트 이미지 경로 */
+  background-repeat: no-repeat;
+}
+
+/* 아래로 걷기 */
+.down {
+  animation: walkDown 1s steps(3) infinite;
+}
+
+/* 위로 걷기 */
+.up {
+  animation: walkUp 1s steps(3) infinite;
+}
