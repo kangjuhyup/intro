@@ -1,5 +1,6 @@
 import { Timeline, Text } from "@mantine/core";
 import { useEffect, useState, forwardRef } from "react";
+import classes from "./Timeline.module.css";
 
 interface CarrerTimelineProps {
   carrer: {
@@ -38,24 +39,27 @@ const CareerTimeline = forwardRef<HTMLDivElement, CarrerTimelineProps>(
 
     return (
       <Timeline
-        ref={ref} // 전달받은 ref를 연결
+        ref={ref}
         id="timeline"
         active={activeIndex}
         bulletSize={24}
-        lineWidth={2}
-        h="100vh"
-        w="50vw"
+        lineWidth={4}
+        className={classes.timelineContainer} /* 스타일 추가 */
       >
-        {carrer.map((c) => {
-          return (
-            <Timeline.Item key={c.name} title={c.name}>
-              <Text color="dimmed" size="sm">
-                {c.time}
-              </Text>
-              <Text>{c.role}</Text>
-            </Timeline.Item>
-          );
-        })}
+        {carrer.map((c) => (
+          <Timeline.Item
+            key={c.name}
+            title={c.name}
+            className={classes.timelineItem} /* 각 아이템에 스타일 추가 */
+            bullet={<div className={classes.timelineBullet} />}
+            lineVariant="dashed"
+          >
+            <Text color="dimmed" size="sm">
+              {c.time}
+            </Text>
+            <Text>{c.role}</Text>
+          </Timeline.Item>
+        ))}
       </Timeline>
     );
   }
