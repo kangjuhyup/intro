@@ -26,9 +26,8 @@ const careers = [
 ];
 
 function Career() {
-  const careerRef = useRef<HTMLDivElement | null>(null);
   return (
-    <Container id="career" h="100vh" w="100vw">
+    <Container id="career" w="100vw">
       <Title order={2} mb="lg">
         경력
       </Title>

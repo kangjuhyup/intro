@@ -7,7 +7,7 @@ interface HeaderProps {
   links: { label: string; link: string }[]; // 링크 배열을 인자로 받음
 }
 
-function Header({ links }: HeaderProps) {
+const Header = ({ links }: HeaderProps) => {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState<string | undefined>();
   const [items, setItems] = useState<JSX.Element[]>([]);
@@ -20,6 +20,7 @@ function Header({ links }: HeaderProps) {
           className={classes.link}
           data-active={active === link.link || undefined}
           onClick={(event) => {
+            console.log(link);
             console.log("Click");
             event.preventDefault();
             setActive(link.link);
@@ -45,6 +46,6 @@ function Header({ links }: HeaderProps) {
   ) : (
     <></>
   );
-}
+};
 
 export default Header;
