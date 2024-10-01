@@ -5,11 +5,15 @@ const useList = () => {
   const [listIdx, setListIdx] = useState(1);
 
   useEffect(() => {
-    fetchComments({ limit: 5, skip: listIdx - 1 * 5 });
+    fetchComments({ limit: 5, skip: (listIdx - 1) * 5 });
   }, [listIdx]);
 
+  useEffect(() => {
+    console.log(comments);
+  }, [comments]);
+
   return {
-    comments,
+    comments: comments?.data,
     listIdx,
     setListIdx,
   };

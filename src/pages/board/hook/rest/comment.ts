@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Response from "../../../../common/http/response";
 
 interface GetCommentsRequest {
   limit: number;
@@ -17,7 +18,8 @@ interface GetCommentsResponse {
 }
 
 const useComment = () => {
-  const [comments, setComments] = useState<GetCommentsResponse | null>(null);
+  const [comments, setComments] =
+    useState<Response<GetCommentsResponse> | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -27,20 +29,25 @@ const useComment = () => {
 
     try {
       const response = await fetch(
-        import.meta.env.INTRO_API_URL +
+        import.meta.env.VITE_INTRO_API_URL +
           "/comment?limit=" +
           query.limit +
           "&skip=" +
           query.skip,
-        {}
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
 
       if (!response.ok) {
         throw new Error("댓글 목록 호출 실패.");
       }
 
-      const data: GetCommentsResponse = await response.json();
-      setComments(data);
+      const res: Response<GetCommentsResponse> = await response.json();
+      setComments(res);
     } catch (error) {
       setError((error as Error).message);
     } finally {
