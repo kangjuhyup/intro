@@ -4,7 +4,6 @@ import {
   Group,
   TypographyStylesProvider,
   Paper,
-  List,
   Container,
   Pagination,
 } from "@mantine/core";

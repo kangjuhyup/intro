@@ -31,7 +31,10 @@ function Blog() {
 
   return (
     <Grid.Col span={4}>
-      <IconBrandBlogger />
+      <Container display="flex">
+        <IconBrandBlogger />
+        <Title order={3}>Article</Title>
+      </Container>
       {posts && posts.length > 0 ? (
         <>
           {getPostPage(listIdx)}
@@ -39,7 +42,7 @@ function Blog() {
             total={posts.length / 5}
             value={listIdx}
             onChange={setListIdx}
-            mt="sm"
+            pb="sm"
           />
         </>
       ) : (

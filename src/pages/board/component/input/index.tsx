@@ -42,7 +42,7 @@ const CommentInput = () => {
   ));
 
   return (
-    <Container mt={30}>
+    <Container pb={30}>
       <Group gap={10}>
         <Combobox
           store={combobox}
@@ -90,7 +90,7 @@ const CommentInput = () => {
           placeholder="이름을 입력하세요"
         />
       </Group>
-      <Group mt={10} gap={10}>
+      <Group pb={10} gap={10}>
         <TooltipInput
           w="50vw"
           placeholder="이메일을 입력하세요"
@@ -106,13 +106,13 @@ const CommentInput = () => {
         />
       </Group>
       <TextInput
-        mt="md"
+        pb="md"
         placeholder="댓글을 입력하세요"
         value={comment || ""}
         onChange={(e) => setComment(e.currentTarget.value)}
       />{" "}
       <Button
-        mt="md"
+        pb="md"
         onClick={() => {
           if (name && comment && avartar && email)
             addComment({

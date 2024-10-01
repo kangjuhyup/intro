@@ -6,7 +6,7 @@ function Board() {
   return (
     <Container id="board" h="100vh">
       <Title order={2} mb="lg">
-        댓글 보드
+        동료 메세지
       </Title>
 
       <CommentList refresh={() => {}} />

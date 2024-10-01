@@ -30,7 +30,10 @@ function Github() {
   };
   return (
     <Grid.Col span={4}>
-      <IconBrandGithub />
+      <Container display="flex">
+        <IconBrandGithub />
+        <Title order={3}>Repository</Title>
+      </Container>
       {repos && repos.length > 0 ? (
         <>
           {getRepoPage(listIdx)}
