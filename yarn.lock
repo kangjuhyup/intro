@@ -602,6 +602,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/carousel@npm:^7.13.1":
+  version: 7.13.1
+  resolution: "@mantine/carousel@npm:7.13.1"
+  peerDependencies:
+    "@mantine/core": 7.13.1
+    "@mantine/hooks": 7.13.1
+    embla-carousel-react: ">=7.0.0"
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 10c0/7fbfa3f09a817751374ebb12bced4edbbad648ffefb9721cb8c8ba4f47bac8bc7e1cbd6168939a05f59b7784b2780a5e0d322969f68c6f9809d2cc7d01ad1c5f
+  languageName: node
+  linkType: hard
+
 "@mantine/core@npm:^7.13.0":
   version: 7.13.0
   resolution: "@mantine/core@npm:7.13.0"
@@ -1392,6 +1405,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"embla-carousel-react@npm:^8.3.0":
+  version: 8.3.0
+  resolution: "embla-carousel-react@npm:8.3.0"
+  dependencies:
+    embla-carousel: "npm:8.3.0"
+    embla-carousel-reactive-utils: "npm:8.3.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.1 || ^18.0.0
+  checksum: 10c0/ee3492dfbc900391c8137cca2f55c403307e3dd121a77ea3bbacca33afb82715647eaae5a6d6cc25590284892e45c75e70ab5bb033ebc20016a1972333104dc6
+  languageName: node
+  linkType: hard
+
+"embla-carousel-reactive-utils@npm:8.3.0":
+  version: 8.3.0
+  resolution: "embla-carousel-reactive-utils@npm:8.3.0"
+  peerDependencies:
+    embla-carousel: 8.3.0
+  checksum: 10c0/64769d7b5d0169f7cda810d909b446ccd47b28afbcb205196c0e1799c51ebbefaa71465cabd6bc5ab92bad78da99fdf2808dc8e1a3f3f18a7e428ae2e0136a0e
+  languageName: node
+  linkType: hard
+
+"embla-carousel@npm:8.3.0":
+  version: 8.3.0
+  resolution: "embla-carousel@npm:8.3.0"
+  checksum: 10c0/0240156d6a736603d82ddfe93b03ce296e385e9c18ed2cca9465634c8adb7560bfc2fbef6368a4da2a54926c4ba6de1012ebb33d2fc92c052030ea2288e4cc92
+  languageName: node
+  linkType: hard
+
 "emoji-regex@npm:^8.0.0":
   version: 8.0.0
   resolution: "emoji-regex@npm:8.0.0"
@@ -1978,6 +2019,7 @@ __metadata:
   resolution: "intro@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.9.0"
+    "@mantine/carousel": "npm:^7.13.1"
     "@mantine/core": "npm:^7.13.0"
     "@mantine/hooks": "npm:^7.13.0"
     "@tabler/icons-react": "npm:^3.19.0"
@@ -1985,6 +2027,7 @@ __metadata:
     "@types/react-dom": "npm:^18.3.0"
     "@types/xml2js": "npm:^0"
     "@vitejs/plugin-react": "npm:^4.3.1"
+    embla-carousel-react: "npm:^8.3.0"
     eslint: "npm:^9.9.0"
     eslint-plugin-react-hooks: "npm:^5.1.0-rc.0"
     eslint-plugin-react-refresh: "npm:^0.4.9"

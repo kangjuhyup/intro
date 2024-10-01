@@ -8,14 +8,15 @@ const useList = () => {
     fetchComments({ limit: 5, skip: (listIdx - 1) * 5 });
   }, [listIdx]);
 
-  useEffect(() => {
-    console.log(comments);
-  }, [comments]);
+  const refresh = () => {
+    setListIdx(1);
+  };
 
   return {
     comments: comments?.data,
     listIdx,
     setListIdx,
+    refresh,
   };
 };
 export default useList;

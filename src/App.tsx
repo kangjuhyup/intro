@@ -5,7 +5,6 @@ import Header from "./common/component/header";
 import Profile from "./pages/profile";
 import Career from "./pages/career";
 import Board from "./pages/board";
-import "@mantine/core/styles.css";
 
 function App() {
   const [links, setLinks] = useState<

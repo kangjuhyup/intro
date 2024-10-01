@@ -5,6 +5,8 @@ interface TooltipInputProps {
   placeholder: string;
   label?: string;
   tooltip: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => any;
   w?: string;
   h?: string;
 }
@@ -13,6 +15,8 @@ const TooltipInput = ({
   placeholder,
   label,
   tooltip,
+  value,
+  onChange,
   w,
   h,
 }: TooltipInputProps) => {
@@ -20,6 +24,8 @@ const TooltipInput = ({
     <TextInput
       w={w}
       h={h}
+      value={value}
+      onChange={onChange}
       rightSection={
         <Tooltip
           label={tooltip}

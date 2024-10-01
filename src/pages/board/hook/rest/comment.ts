@@ -17,6 +17,13 @@ interface GetCommentsResponse {
   }[];
 }
 
+interface AddCommentRequest {
+  email: string;
+  name: string;
+  comment: string;
+  avartar: string;
+}
+
 const useComment = () => {
   const [comments, setComments] =
     useState<Response<GetCommentsResponse> | null>(null);
@@ -54,7 +61,36 @@ const useComment = () => {
       setLoading(false);
     }
   };
-  return { fetchComments, comments, loading, error };
+
+  const addComment = async (body: AddCommentRequest) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(
+        import.meta.env.VITE_INTRO_API_URL + "/comment",
+        {
+          method: "POST",
+          body: JSON.stringify(body),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("댓글 등록 실패.");
+      }
+
+      const res: Response<undefined> = await response.json();
+    } catch (error) {
+      setError((error as Error).message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { fetchComments, comments, addComment, loading, error };
 };
 
 export default useComment;

@@ -10,7 +10,7 @@ function Board() {
       </Title>
 
       <CommentList refresh={() => {}} />
-      <CommentInput onAdd={() => {}} />
+      <CommentInput />
     </Container>
   );
 }
