@@ -34,7 +34,7 @@ jobs:
       run: yarn install --immutable
 
     - name: build docker
-      run: docker build -t ghcr.io/${{ github.repository }}/jhkang-intro:latest .
+      run: docker build --platform linux/arm64 -t ghcr.io/${{ github.repository }}/jhkang-intro:latest .
 
     - name: push image
       run: docker push ghcr.io/${{ github.repository }}/jhkang-intro:latest
