@@ -18,6 +18,9 @@ COPY --from=builder /usr/src/app/dist ./dist
 COPY --from=builder /usr/src/app/package.json ./package.json
 COPY --from=builder /usr/src/app/yarn.lock ./.yarn.lock
 COPY --from=builder /usr/src/app/server.js ./server.js
+
+RUN yarn workspaces focus --production
+
 EXPOSE 3000
 
 CMD ["node","server.js"]
