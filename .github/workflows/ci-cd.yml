@@ -36,11 +36,8 @@ jobs:
     - name: docker create
       run : docker buildx create --use
 
-    - name: build docker
-      run: docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/${{ github.repository }}/jhkang-intro:latest .
-
-    - name: push image
-      run: docker push ghcr.io/${{ github.repository }}/jhkang-intro:latest
+    - name: docker build & push
+      run: docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/${{ github.repository }}/jhkang-intro:latest --push .
       
   deploy:
     runs-on: ubuntu-latest
