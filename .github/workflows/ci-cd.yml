@@ -33,6 +33,9 @@ jobs:
     - name: install packages
       run: yarn install --immutable
 
+    - name: docker create
+      run : docker buildx create --use
+
     - name: build docker
       run: docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/${{ github.repository }}/jhkang-intro:latest .
 
