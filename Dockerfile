@@ -13,9 +13,7 @@ WORKDIR /usr/src/app
 RUN yarn set version 4.5.0
 
 COPY --from=builder /usr/src/app/dist ./dist
-
-RUN npm install -g pm2
-
+COPY --from=builder /user/src/app/server.js .
 EXPOSE 3000
 
-CMD ["pm2-runtime", "serve", "dist" , "--spa" , "--port", "3000"]
+CMD ["node","server.js"]
