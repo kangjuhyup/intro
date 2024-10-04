@@ -1,5 +1,5 @@
-const express = require("express");
-const path = require("path");
+import express from "express";
+import * as path from "path";
 const app = express();
 
 const buildPath = path.join(__dirname, "dist");
