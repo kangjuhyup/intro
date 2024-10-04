@@ -6,10 +6,14 @@ import Profile from "./pages/profile";
 import Career from "./pages/career";
 import Board from "./pages/board";
 import Skill from "./pages/skill";
+import { throttle } from "lodash";
 
 function App() {
   const [links, setLinks] = useState<
-    { label: string; link: string; component: JSX.Element }[]
+    {
+      label: string;
+      scroll: () => any;
+    }[]
   >([]);
 
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0); // 현재 섹션의 인덱스
@@ -17,7 +21,7 @@ function App() {
   // 각 섹션으로 스크롤하기 위한 훅
   const { scrollIntoView: scrollToProfile, targetRef: profileRef } =
     useScrollIntoView<HTMLDivElement>({
-      offset: 0,
+      offset: 60,
       cancelable: false,
       duration: 800,
       onScrollFinish: () => {
@@ -27,7 +31,7 @@ function App() {
 
   const { scrollIntoView: scrollToSkill, targetRef: skillRef } =
     useScrollIntoView<HTMLDivElement>({
-      offset: 0,
+      offset: 60,
       cancelable: false,
       duration: 800,
       onScrollFinish: () => {
@@ -37,7 +41,7 @@ function App() {
 
   const { scrollIntoView: scrollToCareer, targetRef: careerRef } =
     useScrollIntoView<HTMLDivElement>({
-      offset: 0,
+      offset: 60,
       cancelable: false,
       duration: 800,
       onScrollFinish: () => {
@@ -47,11 +51,10 @@ function App() {
 
   const { scrollIntoView: scrollToBoard, targetRef: boardRef } =
     useScrollIntoView<HTMLDivElement>({
-      offset: 0,
+      offset: 60,
       cancelable: false,
       duration: 800,
       onScrollFinish: () => {
-        console.log("scrollToBoard onScrollFinish");
         setCurrentSectionIndex(3);
       },
     });
@@ -59,35 +62,47 @@ function App() {
   // 섹션 목록을 설정
   useEffect(() => {
     setLinks([
-      { label: "프로필", link: "/profile", component: <Profile /> },
-      { label: "기술", link: "/skill", component: <Skill /> },
-      { label: "경력", link: "/career", component: <Career /> },
-      { label: "동료 메세지", link: "/board", component: <Board /> },
+      {
+        label: "프로필",
+        scroll: scrollToProfile,
+      },
+      { label: "기술", scroll: scrollToSkill },
+      { label: "경력", scroll: scrollToCareer },
+      {
+        label: "동료 메세지",
+        scroll: scrollToBoard,
+      },
     ]);
   }, []);
 
   useEffect(() => {
-    const handleScroll = (event: WheelEvent) => {
+    const handleScroll = throttle((event: WheelEvent) => {
       const scrollDirection = event.deltaY > 0 ? "down" : "up";
+      const currentSection =
+        document.querySelectorAll("div")[currentSectionIndex]; // 현재 섹션 가져오기
 
-      if (scrollDirection === "down") {
-        if (currentSectionIndex === 0) {
-          scrollToSkill();
-        } else if (currentSectionIndex === 1) {
-          scrollToCareer();
-        } else if (currentSectionIndex === 2) {
-          scrollToBoard();
-        }
-      } else if (scrollDirection === "up") {
-        if (currentSectionIndex === 1) {
-          scrollToProfile();
-        } else if (currentSectionIndex === 2) {
-          scrollToSkill();
-        } else if (currentSectionIndex === 3) {
-          scrollToCareer();
+      if (currentSection) {
+        const { scrollTop, scrollHeight, clientHeight } = currentSection;
+        const isAtBottom = scrollHeight - scrollTop === clientHeight;
+        if (scrollDirection === "down" && isAtBottom) {
+          if (currentSectionIndex === 0) {
+            scrollToSkill();
+          } else if (currentSectionIndex === 1) {
+            scrollToCareer();
+          } else if (currentSectionIndex === 2) {
+            scrollToBoard();
+          }
+        } else if (scrollDirection === "up" && scrollTop === 0) {
+          if (currentSectionIndex === 1) {
+            scrollToProfile();
+          } else if (currentSectionIndex === 2) {
+            scrollToSkill();
+          } else if (currentSectionIndex === 3) {
+            scrollToCareer();
+          }
         }
       }
-    };
+    }, 500);
     const wheelHandler = (e: WheelEvent) => handleScroll(e);
     window.addEventListener("wheel", wheelHandler);
     return () => {
@@ -112,8 +127,7 @@ function App() {
       }}
     >
       <Header links={links} /> {/* 동적으로 생성된 링크를 전달 */}
-      {/* 각 섹션에 ref를 설정하여 스크롤 */}
-      <div style={{ height: "100vh" }} ref={profileRef}>
+      <div ref={profileRef}>
         <Container>
           <Profile />
         </Container>
@@ -141,7 +155,7 @@ function App() {
           <Career />
         </Container>
       </div>
-      <div style={{ height: "100vh" }} ref={boardRef}>
+      <div ref={boardRef}>
         <Container>
           <Board />
         </Container>

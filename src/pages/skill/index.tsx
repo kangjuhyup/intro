@@ -25,17 +25,17 @@ const skills = [
     category: "Infra",
   },
   {
-    image: "",
+    image: "/icon/k8s.svg",
     title: "K8s",
     category: "Infra",
   },
   {
-    image: "",
+    image: "/icon/mysql.svg",
     title: "MySQL",
     category: "DB",
   },
   {
-    image: "",
+    image: "/icon/mongo.svg",
     title: "MongoDB",
     category: "DB",
   },

@@ -32,6 +32,7 @@ const RAW_RUNTIME_STATE =
           ["@mantine/core", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:7.13.0"],\
           ["@mantine/hooks", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:7.13.0"],\
           ["@tabler/icons-react", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:3.19.0"],\
+          ["@types/lodash", "npm:4.17.10"],\
           ["@types/react", "npm:18.3.10"],\
           ["@types/react-dom", "npm:18.3.0"],\
           ["@types/xml2js", "npm:0.4.14"],\
@@ -41,6 +42,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react-hooks", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:5.1.0-rc-fb9a90fa48-20240614"],\
           ["eslint-plugin-react-refresh", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:0.4.12"],\
           ["globals", "npm:15.9.0"],\
+          ["lodash", "npm:4.17.21"],\
           ["postcss", "npm:8.4.47"],\
           ["postcss-preset-mantine", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:1.17.0"],\
           ["postcss-simple-vars", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:7.0.1"],\
@@ -1243,6 +1245,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/@types-json-schema-npm-7.0.15-fd16381786-10c0.zip/node_modules/@types/json-schema/",\
         "packageDependencies": [\
           ["@types/json-schema", "npm:7.0.15"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/lodash", [\
+      ["npm:4.17.10", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-lodash-npm-4.17.10-033d752d27-10c0.zip/node_modules/@types/lodash/",\
+        "packageDependencies": [\
+          ["@types/lodash", "npm:4.17.10"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2600,6 +2611,7 @@ const RAW_RUNTIME_STATE =
           ["@mantine/core", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:7.13.0"],\
           ["@mantine/hooks", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:7.13.0"],\
           ["@tabler/icons-react", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:3.19.0"],\
+          ["@types/lodash", "npm:4.17.10"],\
           ["@types/react", "npm:18.3.10"],\
           ["@types/react-dom", "npm:18.3.0"],\
           ["@types/xml2js", "npm:0.4.14"],\
@@ -2609,6 +2621,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react-hooks", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:5.1.0-rc-fb9a90fa48-20240614"],\
           ["eslint-plugin-react-refresh", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:0.4.12"],\
           ["globals", "npm:15.9.0"],\
+          ["lodash", "npm:4.17.21"],\
           ["postcss", "npm:8.4.47"],\
           ["postcss-preset-mantine", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:1.17.0"],\
           ["postcss-simple-vars", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:7.0.1"],\
@@ -2825,6 +2838,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["locate-path", "npm:6.0.0"],\
           ["p-locate", "npm:5.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["lodash", [\
+      ["npm:4.17.21", {\
+        "packageLocation": "../../.yarn/berry/cache/lodash-npm-4.17.21-6382451519-10c0.zip/node_modules/lodash/",\
+        "packageDependencies": [\
+          ["lodash", "npm:4.17.21"]\
         ],\
         "linkType": "HARD"\
       }]\
