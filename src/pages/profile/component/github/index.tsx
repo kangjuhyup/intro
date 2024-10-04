@@ -8,10 +8,10 @@ import {
 } from "@mantine/core";
 import useGitHub from "../../hook/rest/github";
 import { useEffect, useState } from "react";
-import { IconBrandGithub, IconGitBranch } from "@tabler/icons-react";
+import { IconBrandGithub } from "@tabler/icons-react";
 
 function Github() {
-  const { fetchRepos, repos, loading, error } = useGitHub();
+  const { fetchRepos, repos, loading } = useGitHub();
   const [listIdx, setListIdx] = useState(1);
   useEffect(() => {
     fetchRepos();

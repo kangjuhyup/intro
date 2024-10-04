@@ -1,9 +1,4 @@
-import { useEffect, useState } from "react";
-
-interface GetRepoListRequest {
-  username: string;
-  token?: string;
-}
+import { useState } from "react";
 
 interface GetRepoListResponse {
   id: number;

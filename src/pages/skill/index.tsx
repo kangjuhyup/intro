@@ -1,5 +1,5 @@
 import { Carousel } from "@mantine/carousel";
-import { Container, Grid, rem, Title, useMantineTheme } from "@mantine/core";
+import { Container, Title, useMantineTheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import Card from "../../common/component/card";
 

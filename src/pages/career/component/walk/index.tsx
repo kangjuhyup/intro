@@ -63,6 +63,7 @@ const CareerWalk = forwardRef<HTMLDivElement>((props, ref) => {
       ref={ref}
       id="walk"
       className={classes.container}
+      {...props}
       style={{
         height: "64px",
         width: "64px",

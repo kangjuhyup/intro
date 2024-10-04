@@ -14,7 +14,7 @@ interface CommentListProps {
   refresh: () => void;
 }
 
-export const CommentList = ({ refresh }: CommentListProps) => {
+export const CommentList = ({}: CommentListProps) => {
   const { listIdx, setListIdx, comments } = useList();
 
   return (

@@ -1,4 +1,4 @@
-import { Paper, Text, Title, Button, useMantineTheme } from "@mantine/core";
+import { Paper, Text, Title, Button } from "@mantine/core";
 import classes from "./Card.module.css";
 
 interface CardProps {

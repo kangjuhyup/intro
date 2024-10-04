@@ -82,7 +82,7 @@ const useComment = () => {
         throw new Error("댓글 등록 실패.");
       }
 
-      const res: Response<undefined> = await response.json();
+      await response.json();
     } catch (error) {
       setError((error as Error).message);
     } finally {

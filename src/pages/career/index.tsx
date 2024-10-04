@@ -1,8 +1,5 @@
 import { Title, Container, Grid } from "@mantine/core";
 import CareerTimeline from "./component/timeline";
-import Walk from "./component/walk";
-import CareerWalk from "./component/walk";
-import { useRef } from "react";
 
 const careers = [
   {

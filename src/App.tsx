@@ -1,5 +1,5 @@
 import { Container, MantineProvider } from "@mantine/core";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useScrollIntoView } from "@mantine/hooks";
 import Header from "./common/component/header";
 import Profile from "./pages/profile";
