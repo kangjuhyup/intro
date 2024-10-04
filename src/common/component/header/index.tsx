@@ -4,26 +4,22 @@ import { useEffect, useState } from "react";
 import classes from "./Header.module.css";
 
 interface HeaderProps {
-  links: { label: string; link: string }[]; // 링크 배열을 인자로 받음
+  links: { label: string; scroll: () => any }[];
 }
 
 const Header = ({ links }: HeaderProps) => {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState<string | undefined>();
   const [items, setItems] = useState<JSX.Element[]>([]);
   useEffect(() => {
     if (links && links.length !== items.length) {
       const items = links.map((link) => (
         <a
           key={link.label}
-          href={link.link}
           className={classes.link}
-          data-active={active === link.link || undefined}
           onClick={(event) => {
-            console.log(link);
             console.log("Click");
             event.preventDefault();
-            setActive(link.link);
+            scroll();
           }}
         >
           {link.label}
