@@ -15,10 +15,9 @@ RUN yarn set version 4.5.0
 COPY --from=builder /usr/src/app/.yarn ./.yarn
 COPY --from=builder /usr/src/app/.pnp.cjs ./.pnp.cjs
 COPY --from=builder /usr/src/app/dist ./dist
-COPY --from=builder /usr/src/package.json .
-COPY --from=builder /usr/src/yarn.lock .
-COPY --from=builder /usr/src/server.js .
-COPY --from=builder /usr/src/app/server.js .
+COPY --from=builder /usr/src/app/package.json ./package.json
+COPY --from=builder /usr/src/app/yarn.lock ./.yarn.lock
+COPY --from=builder /usr/src/app/server.js ./server.js
 EXPOSE 3000
 
 CMD ["node","server.js"]
