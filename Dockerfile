@@ -14,6 +14,7 @@ RUN yarn set version 4.5.0
 
 COPY --from=builder /usr/src/app/.yarn ./.yarn
 COPY --from=builder /usr/src/app/.pnp.cjs ./.pnp.cjs
+COPY --from=builder /usr/src/app/.pnp.loader.mjs ./.pnp.loader.mjs
 COPY --from=builder /usr/src/app/dist ./dist
 COPY --from=builder /usr/src/app/package.json ./package.json
 COPY --from=builder /usr/src/app/yarn.lock ./.yarn.lock
@@ -23,4 +24,4 @@ RUN yarn workspaces focus --production
 
 EXPOSE 3000
 
-CMD ["node","server.js"]
+CMD ["yarn","node","server.js"]
