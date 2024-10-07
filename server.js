@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 const buildPath = path.join(__dirname, "dist");
 
-const globalPrefix = '/intro-page';
+const globalPrefix = '/page';
 
 app.use(globalPrefix, express.static(buildPath));
 
