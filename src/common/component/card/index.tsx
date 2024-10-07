@@ -12,12 +12,13 @@ interface CardProps {
 }
 
 const Card = ({ image, title, category, detail }: CardProps) => {
+  const backgroundImageUrl = `${import.meta.env.BASE_URL}${image}`;
   return (
     <Paper
       shadow="md"
       p="xl"
       radius="md"
-      style={{ backgroundImage: `url(${image})` }}
+      style={{ backgroundImage: `url(${backgroundImageUrl})` }}
       className={classes.card}
     >
       <div>
