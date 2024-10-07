@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: CI/CD
     permissions:
       contents: read
       packages: write
@@ -32,6 +33,10 @@ jobs:
 
     - name: install packages
       run: yarn install --immutable
+      
+    - name : create .env
+      run: |
+        echo "VITE_INTRO_API_URL=${{ vars.VITE_INTRO_API_URL }}" >> .env
 
     - name: docker create
       run : docker buildx create --use
