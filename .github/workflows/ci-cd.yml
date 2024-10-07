@@ -68,5 +68,5 @@ jobs:
           docker pull ghcr.io/${{ github.repository }}/jhkang-intro:latest
           docker stop jhkang-intro || true
           docker rm jhkang-intro || true
-          docker run -d -p 3001:3001 --name jhkang-intro ghcr.io/${{ github.repository }}/jhkang-intro:latest
+          docker run -d -p 3000:3000 --name jhkang-intro ghcr.io/${{ github.repository }}/jhkang-intro:latest
         EOF
