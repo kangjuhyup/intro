@@ -2,6 +2,7 @@ import { Tooltip, Text, Center, rem, TextInput } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
 
 interface TooltipInputProps {
+  classNames?: any;
   placeholder: string;
   label?: string;
   tooltip: string;
@@ -12,6 +13,7 @@ interface TooltipInputProps {
 }
 
 const TooltipInput = ({
+  classNames,
   placeholder,
   label,
   tooltip,
@@ -22,6 +24,7 @@ const TooltipInput = ({
 }: TooltipInputProps) => {
   return (
     <TextInput
+      classNames={classNames}
       w={w}
       h={h}
       value={value}

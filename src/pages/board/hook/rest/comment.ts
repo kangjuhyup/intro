@@ -22,11 +22,13 @@ interface AddCommentRequest {
   name: string;
   comment: string;
   avartar: string;
+  company: string;
 }
 
 const useComment = () => {
   const [comments, setComments] =
     useState<Response<GetCommentsResponse> | null>(null);
+  const [addResponse, setAddResponse] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -63,9 +65,10 @@ const useComment = () => {
   };
 
   const addComment = async (body: AddCommentRequest) => {
+    setAddResponse(false);
     setLoading(true);
     setError(null);
-
+    console.log(body);
     try {
       const response = await fetch(
         import.meta.env.VITE_INTRO_API_URL + "/comment",
@@ -83,6 +86,7 @@ const useComment = () => {
       }
 
       await response.json();
+      setAddResponse(true);
     } catch (error) {
       setError((error as Error).message);
     } finally {
@@ -90,7 +94,7 @@ const useComment = () => {
     }
   };
 
-  return { fetchComments, comments, addComment, loading, error };
+  return { fetchComments, comments, addComment, addResponse, loading, error };
 };
 
 export default useComment;

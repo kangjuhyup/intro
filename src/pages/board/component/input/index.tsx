@@ -3,8 +3,11 @@ import {
   Button,
   Combobox,
   Container,
+  Dialog,
   Group,
   InputBase,
+  Select,
+  Text,
   TextInput,
 } from "@mantine/core";
 import { useEffect } from "react";
@@ -12,17 +15,22 @@ import TooltipInput from "../../../../common/component/input/tooltip";
 import useAvartar from "../../hook/useAvartar";
 import useInput from "../../hook/useInput";
 import classes from "../../Board.module.css";
+import { useDisclosure } from "@mantine/hooks";
 
 const CommentInput = () => {
   const { avartarList, combobox } = useAvartar();
+  const [opened, { toggle, close }] = useDisclosure(false);
   const {
     addComment,
+    addResponse,
     setComment,
     comment,
     setName,
     name,
     setEmail,
     email,
+    setCompany,
+    company,
     setAvartar,
     avartar,
   } = useInput();
@@ -30,6 +38,12 @@ const CommentInput = () => {
   useEffect(() => {
     setAvartar(avartarList[0]);
   }, [avartarList]);
+
+  useEffect(() => {
+    if (addResponse) {
+      toggle();
+    }
+  }, [addResponse]);
 
   const options = avartarList.map((item) => (
     <Combobox.Option value={item} key={item} active={item === avartar}>
@@ -92,11 +106,23 @@ const CommentInput = () => {
       </Group>
       <Group pb={10} gap={10}>
         <TooltipInput
+          classNames={classes}
+          label="이메일"
           w="50vw"
           placeholder="이메일을 입력하세요"
           tooltip="입력하신 이메일로 인증메일이 전송됩니다."
           value={email || ""}
           onChange={(e) => setEmail(e.currentTarget.value)}
+        />
+        <Select
+          comboboxProps={{ withinPortal: true }}
+          data={["크립토", "캐리버스", "더즌", "기타"]}
+          placeholder="선택하세요."
+          label="소속"
+          onSelect={(e) => {
+            setCompany(e.currentTarget.value);
+          }}
+          classNames={classes}
         />
         {/* <PasswordInput
           w="30vw"
@@ -116,17 +142,29 @@ const CommentInput = () => {
         variant="white"
         color="dark"
         onClick={() => {
-          if (name && comment && avartar && email)
+          if (name && comment && avartar && email && company)
             addComment({
               name,
               comment,
               avartar,
               email,
+              company,
             });
         }}
       >
         메세지 보내기
       </Button>
+      <Dialog
+        opened={opened}
+        withCloseButton
+        onClose={close}
+        size="lg"
+        radius="md"
+      >
+        <Text size="sm" mb="xs" fw={500}>
+          인증메일이 발송되었어요. 확인해주세요
+        </Text>
+      </Dialog>
     </Container>
   );
 };

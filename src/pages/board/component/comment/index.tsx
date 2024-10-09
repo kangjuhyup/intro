@@ -40,7 +40,12 @@ export const CommentList = ({}: CommentListProps) => {
               <Group>
                 <Avatar src={comment.avartar} radius="xl" />
                 <div>
-                  <Text fz="sm">{comment.name}</Text>
+                  <div style={{ display: "flex" }}>
+                    <Text fz="sm">{comment.name}</Text>
+                    <Text pl={5} fz="sm" c="dimmed">
+                      [ {comment.company} ]
+                    </Text>
+                  </div>
                   <Text fz="xs" c="dimmed">
                     {new Date(comment.createdAt).toLocaleString()}
                   </Text>
