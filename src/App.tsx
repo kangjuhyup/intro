@@ -6,7 +6,6 @@ import Profile from "./pages/profile";
 import Career from "./pages/career";
 import Board from "./pages/board";
 import Skill from "./pages/skill";
-import { throttle } from "lodash";
 
 function App() {
   const [links, setLinks] = useState<
@@ -76,34 +75,34 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const handleScroll = throttle((event: WheelEvent) => {
-      const scrollDirection = event.deltaY > 0 ? "down" : "up";
-      const currentSection =
-        document.querySelectorAll("div")[currentSectionIndex]; // 현재 섹션 가져오기
+    // const handleScroll = throttle((event: WheelEvent) => {
+    //   const scrollDirection = event.deltaY > 0 ? "down" : "up";
+    //   const currentSection =
+    //     document.querySelectorAll("div")[currentSectionIndex]; // 현재 섹션 가져오기
 
-      if (currentSection) {
-        const { scrollTop, scrollHeight, clientHeight } = currentSection;
-        const isAtBottom = scrollHeight - scrollTop === clientHeight;
-        if (scrollDirection === "down" && isAtBottom) {
-          if (currentSectionIndex === 0) {
-            scrollToSkill();
-          } else if (currentSectionIndex === 1) {
-            scrollToCareer();
-          } else if (currentSectionIndex === 2) {
-            scrollToBoard();
-          }
-        } else if (scrollDirection === "up" && scrollTop === 0) {
-          if (currentSectionIndex === 1) {
-            scrollToProfile();
-          } else if (currentSectionIndex === 2) {
-            scrollToSkill();
-          } else if (currentSectionIndex === 3) {
-            scrollToCareer();
-          }
-        }
-      }
-    }, 500);
-    const wheelHandler = (e: WheelEvent) => handleScroll(e);
+    //   if (currentSection) {
+    //     const { scrollTop, scrollHeight, clientHeight } = currentSection;
+    //     const isAtBottom = scrollHeight - scrollTop === clientHeight;
+    //     if (scrollDirection === "down" && isAtBottom) {
+    //       if (currentSectionIndex === 0) {
+    //         scrollToSkill();
+    //       } else if (currentSectionIndex === 1) {
+    //         scrollToCareer();
+    //       } else if (currentSectionIndex === 2) {
+    //         scrollToBoard();
+    //       }
+    //     } else if (scrollDirection === "up" && scrollTop === 0) {
+    //       if (currentSectionIndex === 1) {
+    //         scrollToProfile();
+    //       } else if (currentSectionIndex === 2) {
+    //         scrollToSkill();
+    //       } else if (currentSectionIndex === 3) {
+    //         scrollToCareer();
+    //       }
+    //     }
+    //   }
+    // }, 500);
+    // const wheelHandler = (e: WheelEvent) => handleScroll(e);
     // window.addEventListener("wheel", wheelHandler);
     return () => {
       // window.removeEventListener("wheel", wheelHandler);

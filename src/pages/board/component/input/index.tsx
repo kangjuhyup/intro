@@ -5,13 +5,13 @@ import {
   Container,
   Group,
   InputBase,
-  PasswordInput,
   TextInput,
 } from "@mantine/core";
 import { useEffect } from "react";
 import TooltipInput from "../../../../common/component/input/tooltip";
 import useAvartar from "../../hook/useAvartar";
 import useInput from "../../hook/useInput";
+import classes from "../../Board.module.css";
 
 const CommentInput = () => {
   const { avartarList, combobox } = useAvartar();
@@ -23,8 +23,6 @@ const CommentInput = () => {
     name,
     setEmail,
     email,
-    setPwd,
-    pwd,
     setAvartar,
     avartar,
   } = useInput();
@@ -42,7 +40,7 @@ const CommentInput = () => {
   ));
 
   return (
-    <Container pb={30}>
+    <Container>
       <Group gap={10}>
         <Combobox
           store={combobox}
@@ -85,9 +83,11 @@ const CommentInput = () => {
         </Combobox>
         <TextInput
           w="50vw"
+          classNames={classes}
           value={name || ""}
+          label="이름"
           onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="이름을 입력하세요"
+          placeholder="홍길동"
         />
       </Group>
       <Group pb={10} gap={10}>
@@ -107,9 +107,9 @@ const CommentInput = () => {
       </Group>
       <TextInput
         pb="md"
-        placeholder="댓글을 입력하세요"
+        classNames={classes}
+        label="메세지"
         value={comment || ""}
-        w="100vw"
         onChange={(e) => setComment(e.currentTarget.value)}
       />{" "}
       <Button
@@ -125,7 +125,7 @@ const CommentInput = () => {
             });
         }}
       >
-        댓글 달기
+        메세지 보내기
       </Button>
     </Container>
   );
