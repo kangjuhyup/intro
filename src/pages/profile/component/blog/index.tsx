@@ -1,15 +1,8 @@
-import {
-  Container,
-  Grid,
-  List,
-  Loader,
-  Pagination,
-  Title,
-} from "@mantine/core";
+import { Container, Grid, List, Loader, Pagination } from "@mantine/core";
 import useMedium from "../../hook/rest/medium";
 import { useEffect, useState } from "react";
 import { IconBrandBlogger } from "@tabler/icons-react";
-
+import classes from "../../Profile.module.css";
 function Blog() {
   const { posts, fetchPosts, loading } = useMedium();
   const [listIdx, setListIdx] = useState(1);
@@ -30,10 +23,9 @@ function Blog() {
   };
 
   return (
-    <Grid.Col span={4}>
+    <Grid.Col span={6} className={classes.gridItem}>
       <Container display="flex">
         <IconBrandBlogger />
-        <Title order={3}>Article</Title>
       </Container>
       {posts && posts.length > 0 ? (
         <>

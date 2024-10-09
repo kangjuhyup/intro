@@ -104,62 +104,50 @@ function App() {
       }
     }, 500);
     const wheelHandler = (e: WheelEvent) => handleScroll(e);
-    window.addEventListener("wheel", wheelHandler);
+    // window.addEventListener("wheel", wheelHandler);
     return () => {
-      window.removeEventListener("wheel", wheelHandler);
+      // window.removeEventListener("wheel", wheelHandler);
     };
   }, [currentSectionIndex]);
 
   return (
-    <MantineProvider
-      defaultColorScheme="dark"
-      theme={{
-        components: {
-          Container: {
-            styles: {
-              root: {
-                width: "100vw",
-                maxWidth: "100vw",
-              },
-            },
-          },
-        },
-      }}
-    >
-      <Header links={links} /> {/* 동적으로 생성된 링크를 전달 */}
-      <div ref={profileRef}>
-        <Container>
-          <Profile />
-        </Container>
-      </div>
-      <div
-        style={{
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        ref={skillRef}
-      >
-        <Container>
-          <Skill />
-        </Container>
-      </div>
-      <div
-        style={{
-          height: "100vh",
-        }}
-        ref={careerRef}
-      >
-        <Container>
-          <Career />
-        </Container>
-      </div>
-      <div ref={boardRef}>
-        <Container>
-          <Board />
-        </Container>
-      </div>
+    <MantineProvider defaultColorScheme="dark">
+      <Container w="100vw">
+        <Header links={links} /> {/* 동적으로 생성된 링크를 전달 */}
+        <div ref={profileRef}>
+          <Container>
+            <Profile />
+          </Container>
+        </div>
+        <div
+          style={{
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          ref={skillRef}
+        >
+          <Container>
+            <Skill />
+          </Container>
+        </div>
+        <div
+          style={{
+            height: "100vh",
+          }}
+          ref={careerRef}
+        >
+          <Container>
+            <Career />
+          </Container>
+        </div>
+        <div ref={boardRef}>
+          <Container>
+            <Board />
+          </Container>
+        </div>
+      </Container>
     </MantineProvider>
   );
 }

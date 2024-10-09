@@ -98,21 +98,23 @@ const CommentInput = () => {
           value={email || ""}
           onChange={(e) => setEmail(e.currentTarget.value)}
         />
-        <PasswordInput
+        {/* <PasswordInput
           w="30vw"
           placeholder="댓글 비밀번호"
           value={pwd || ""}
           onChange={(e) => setPwd(e.currentTarget.value)}
-        />
+        /> */}
       </Group>
       <TextInput
         pb="md"
         placeholder="댓글을 입력하세요"
         value={comment || ""}
+        w="100vw"
         onChange={(e) => setComment(e.currentTarget.value)}
       />{" "}
       <Button
-        pb="md"
+        variant="white"
+        color="dark"
         onClick={() => {
           if (name && comment && avartar && email)
             addComment({

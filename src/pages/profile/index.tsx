@@ -5,7 +5,7 @@ import Info from "./component/info";
 
 function Profile() {
   return (
-    <Container w="100vw" h="100vh" id="profile">
+    <Container id="profile">
       <Info />
       <Grid pb={20} gutter="md">
         <Github />

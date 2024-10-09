@@ -1,14 +1,8 @@
-import {
-  Container,
-  Grid,
-  List,
-  Loader,
-  Pagination,
-  Title,
-} from "@mantine/core";
+import { Container, Grid, List, Loader, Pagination } from "@mantine/core";
 import useGitHub from "../../hook/rest/github";
 import { useEffect, useState } from "react";
 import { IconBrandGithub } from "@tabler/icons-react";
+import classes from "../../Profile.module.css";
 
 function Github() {
   const { fetchRepos, repos, loading } = useGitHub();
@@ -18,9 +12,10 @@ function Github() {
   }, []);
 
   const getRepoPage = (idx: number) => {
+    console.log("idx => ", idx);
     return (
       <List>
-        {repos.slice((idx - 1) * 5, idx + 5).map((repo) => (
+        {repos.slice((idx - 1) * 5, (idx - 1) * 5 + 5).map((repo) => (
           <List.Item key={repo.id}>
             <a href={repo.html_url}>{repo.name}</a>
           </List.Item>
@@ -29,10 +24,9 @@ function Github() {
     );
   };
   return (
-    <Grid.Col span={4}>
+    <Grid.Col span={6} className={classes.gridItem}>
       <Container display="flex">
         <IconBrandGithub />
-        <Title order={3}>Repository</Title>
       </Container>
       {repos && repos.length > 0 ? (
         <>
