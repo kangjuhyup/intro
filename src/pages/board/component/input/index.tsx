@@ -14,7 +14,7 @@ import { useEffect } from "react";
 import TooltipInput from "../../../../common/component/input/tooltip";
 import useAvartar from "../../hook/useAvartar";
 import useInput from "../../hook/useInput";
-import classes from "./Input.module.css";
+import classes from "../../../../Input.module.css";
 import { useDisclosure } from "@mantine/hooks";
 
 const CommentInput = () => {
