@@ -52,7 +52,7 @@ function Skill() {
   ));
 
   return (
-    <Container>
+    <Container w="80vw">
       <Title order={2}>기술</Title>
       <Carousel
         slideSize={

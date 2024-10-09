@@ -36,7 +36,6 @@ const RAW_RUNTIME_STATE =
           ["@types/lodash", "npm:4.17.10"],\
           ["@types/react", "npm:18.3.10"],\
           ["@types/react-dom", "npm:18.3.0"],\
-          ["@types/xml2js", "npm:0.4.14"],\
           ["@vitejs/plugin-react", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:4.3.1"],\
           ["embla-carousel-react", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:7.1.0"],\
           ["eslint", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:9.11.1"],\
@@ -53,8 +52,7 @@ const RAW_RUNTIME_STATE =
           ["react-dom", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:18.3.1"],\
           ["typescript", "patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"],\
           ["typescript-eslint", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:8.7.0"],\
-          ["vite", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:5.4.8"],\
-          ["xml2js", "npm:0.6.2"]\
+          ["vite", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:5.4.8"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1403,16 +1401,6 @@ const RAW_RUNTIME_STATE =
           ["@types/http-errors", "npm:2.0.4"],\
           ["@types/node", "npm:22.7.4"],\
           ["@types/send", "npm:0.17.4"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@types/xml2js", [\
-      ["npm:0.4.14", {\
-        "packageLocation": "../../.yarn/berry/cache/@types-xml2js-npm-0.4.14-595cc9c3cf-10c0.zip/node_modules/@types/xml2js/",\
-        "packageDependencies": [\
-          ["@types/xml2js", "npm:0.4.14"],\
-          ["@types/node", "npm:22.7.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3121,7 +3109,6 @@ const RAW_RUNTIME_STATE =
           ["@types/lodash", "npm:4.17.10"],\
           ["@types/react", "npm:18.3.10"],\
           ["@types/react-dom", "npm:18.3.0"],\
-          ["@types/xml2js", "npm:0.4.14"],\
           ["@vitejs/plugin-react", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:4.3.1"],\
           ["embla-carousel-react", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:7.1.0"],\
           ["eslint", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:9.11.1"],\
@@ -3138,8 +3125,7 @@ const RAW_RUNTIME_STATE =
           ["react-dom", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:18.3.1"],\
           ["typescript", "patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"],\
           ["typescript-eslint", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:8.7.0"],\
-          ["vite", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:5.4.8"],\
-          ["xml2js", "npm:0.6.2"]\
+          ["vite", "virtual:d0c30f41502172aaadbc09afaf9d513fa249b618aeceb8c0e2337d833c2ced3f844757dac78496e4173fda43be656eb00f2e86cd588091aa186cc8c0874ca873#npm:5.4.8"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -4357,15 +4343,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["sax", [\
-      ["npm:1.4.1", {\
-        "packageLocation": "../../.yarn/berry/cache/sax-npm-1.4.1-503b1923cb-10c0.zip/node_modules/sax/",\
-        "packageDependencies": [\
-          ["sax", "npm:1.4.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["scheduler", [\
       ["npm:0.23.2", {\
         "packageLocation": "../../.yarn/berry/cache/scheduler-npm-0.23.2-6d1dd9c2b7-10c0.zip/node_modules/scheduler/",\
@@ -5139,26 +5116,6 @@ const RAW_RUNTIME_STATE =
           ["ansi-styles", "npm:6.2.1"],\
           ["string-width", "npm:5.1.2"],\
           ["strip-ansi", "npm:7.1.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["xml2js", [\
-      ["npm:0.6.2", {\
-        "packageLocation": "../../.yarn/berry/cache/xml2js-npm-0.6.2-64cd781d74-10c0.zip/node_modules/xml2js/",\
-        "packageDependencies": [\
-          ["xml2js", "npm:0.6.2"],\
-          ["sax", "npm:1.4.1"],\
-          ["xmlbuilder", "npm:11.0.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["xmlbuilder", [\
-      ["npm:11.0.1", {\
-        "packageLocation": "../../.yarn/berry/cache/xmlbuilder-npm-11.0.1-b8b04dc929-10c0.zip/node_modules/xmlbuilder/",\
-        "packageDependencies": [\
-          ["xmlbuilder", "npm:11.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\

@@ -10,31 +10,38 @@ function Blog() {
     fetchPosts();
   }, []);
 
+  useEffect(() => {
+    console.log(posts);
+  }, [posts]);
+
   const getPostPage = (idx: number) => {
     return (
       <List>
-        {posts.slice((idx - 1) * 5, idx + 5).map((posts) => (
-          <List.Item key={posts.title}>
-            <a href={posts.link}>{posts.title}</a>
-          </List.Item>
-        ))}
+        {posts?.data?.article
+          .slice((idx - 1) * 5, (idx - 1) * 5 + 5)
+          .map((posts) => (
+            <List.Item key={posts.title}>
+              <a href={posts.link}>{posts.title}</a>
+            </List.Item>
+          ))}
       </List>
     );
   };
 
   return (
     <Grid.Col span={6} className={classes.gridItem}>
-      <Container display="flex">
+      <Container pb={10} display="flex">
         <IconBrandBlogger />
       </Container>
-      {posts && posts.length > 0 ? (
+      {posts && posts.result ? (
         <>
           {getPostPage(listIdx)}
           <Pagination
-            total={posts.length / 5}
+            total={(posts.data?.count || 0) / 5}
             value={listIdx}
             onChange={setListIdx}
-            pb="sm"
+            pb="xs"
+            withControls={false}
           />
         </>
       ) : (

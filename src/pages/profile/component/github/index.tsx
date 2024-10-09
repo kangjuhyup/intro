@@ -25,7 +25,7 @@ function Github() {
   };
   return (
     <Grid.Col span={6} className={classes.gridItem}>
-      <Container display="flex">
+      <Container pb={10} display="flex">
         <IconBrandGithub />
       </Container>
       {repos && repos.length > 0 ? (

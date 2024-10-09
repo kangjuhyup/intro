@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { parseStringPromise } from "xml2js";
-
+import Response from "../../../../common/http/response";
 interface MediumPostResponse {
-  title: string;
-  link: string;
-  pubDate: string;
-  content: string;
+  count: number;
+  article: {
+    title: string;
+    link: string;
+  }[];
 }
 
 const useMedium = () => {
-  const [posts, setPosts] = useState<MediumPostResponse[]>([]);
+  const [posts, setPosts] = useState<Response<MediumPostResponse>>();
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -18,25 +18,18 @@ const useMedium = () => {
     setError(null);
 
     try {
-      const response = await fetch(`https://medium.com/feed/@fog0510`, {});
+      const response = await fetch(
+        import.meta.env.VITE_INTRO_API_URL + "/blog",
+        {}
+      );
 
       if (!response.ok) {
         throw new Error("Medium feed 목록 호출 실패.");
       }
 
-      const data = await response.text();
-      const parsing = await parseStringPromise(data);
-      console.log(parsing);
-      const items = parsing.rss.channel[0].item;
+      const data = await response.json();
 
-      const parsedPosts = items.map((item: any) => ({
-        title: item.title[0],
-        link: item.link[0],
-        pubDate: item.pubDate[0],
-        content: item["content:encoded"] ? item["content:encoded"][0] : "",
-      }));
-
-      setPosts(parsedPosts);
+      setPosts(data);
     } catch (error) {
       setError((error as Error).message);
     } finally {
