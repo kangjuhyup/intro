@@ -67,7 +67,7 @@ const CommentInput = () => {
         >
           <Combobox.Target targetType="button">
             <InputBase
-              w="20vw"
+              label="아바타"
               component="image"
               type="button"
               pointer
@@ -97,21 +97,11 @@ const CommentInput = () => {
           </Combobox.Dropdown>
         </Combobox>
         <TextInput
-          w="50vw"
+          w="30vw"
           value={name || ""}
           label="이름"
           onChange={(e) => setName(e.currentTarget.value)}
           placeholder="홍길동"
-        />
-      </Group>
-      <Group pb={10} gap={10}>
-        <TooltipInput
-          label="이메일"
-          w="50vw"
-          placeholder="이메일을 입력하세요"
-          tooltip="입력하신 이메일로 인증메일이 전송됩니다."
-          value={email || ""}
-          onChange={(e) => setEmail(e.currentTarget.value)}
         />
         <Select
           comboboxProps={{ withinPortal: true }}
@@ -123,8 +113,17 @@ const CommentInput = () => {
           }}
         />
       </Group>
+      <TooltipInput
+        label="이메일"
+        w="80vw"
+        placeholder="이메일을 입력하세요"
+        tooltip="입력하신 이메일로 인증메일이 전송됩니다."
+        value={email || ""}
+        onChange={(e) => setEmail(e.currentTarget.value)}
+      />
       <TextInput
         pb="md"
+        w="80vw"
         label="메세지"
         value={comment || ""}
         onChange={(e) => setComment(e.currentTarget.value)}
