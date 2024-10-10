@@ -19,6 +19,7 @@ const GlobalError = () => {
   return (
     <Notification
       pos="fixed"
+      withBorder
       bottom={10}
       right={10}
       icon={xIcon}

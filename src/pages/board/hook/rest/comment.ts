@@ -67,7 +67,6 @@ const useComment = () => {
   const addComment = async (body: AddCommentRequest) => {
     setAddResponse(false);
     setLoading(true);
-    console.log(body);
     try {
       const response = await fetch(
         import.meta.env.VITE_INTRO_API_URL + "/comment",
@@ -79,12 +78,12 @@ const useComment = () => {
           },
         }
       );
+      const result = await response.json();
 
       if (!response.ok) {
-        throw new Error("댓글 등록 실패.");
+        throw new Error(result.error?.message || "댓글 등록 실패.");
       }
 
-      await response.json();
       setAddResponse(true);
     } catch (error) {
       setError((error as Error).message);
