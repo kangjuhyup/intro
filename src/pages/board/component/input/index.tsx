@@ -17,7 +17,11 @@ import useInput from "../../hook/useInput";
 import { useDisclosure } from "@mantine/hooks";
 import useErrorStore from "../../../../store/useError";
 
-const CommentInput = () => {
+interface CommentInputProps {
+  onConfirm: () => void;
+}
+
+const CommentInput = ({ onConfirm }: CommentInputProps) => {
   const { setError } = useErrorStore();
   const { avartarList, combobox } = useAvartar();
   const [opened, { toggle, close }] = useDisclosure(false);
@@ -34,6 +38,8 @@ const CommentInput = () => {
     company,
     setAvartar,
     avartar,
+    observeComment,
+    confirmComment,
   } = useInput();
 
   useEffect(() => {
@@ -41,10 +47,16 @@ const CommentInput = () => {
   }, [avartarList]);
 
   useEffect(() => {
-    if (addResponse) {
+    if (addResponse && email) {
       toggle();
+      observeComment(email);
     }
   }, [addResponse]);
+
+  useEffect(() => {
+    console.log(confirmComment);
+    if (confirmComment) onConfirm();
+  }, [confirmComment]);
 
   const options = avartarList.map((item) => (
     <Combobox.Option value={item} key={item} active={item === avartar}>

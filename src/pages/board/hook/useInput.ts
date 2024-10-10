@@ -9,7 +9,8 @@ const useInput = () => {
   const [avartar, setAvartar] = useState<string | null>();
   const [comment, setComment] = useState<string | null>();
 
-  const { addComment, addResponse } = useComment();
+  const { addComment, addResponse, observeComment, confirmComment } =
+    useComment();
 
   return {
     setName,
@@ -26,6 +27,8 @@ const useInput = () => {
     company,
     addComment,
     addResponse,
+    observeComment,
+    confirmComment,
   };
 };
 export default useInput;

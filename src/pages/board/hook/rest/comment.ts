@@ -31,6 +31,7 @@ const useComment = () => {
     useState<Response<GetCommentsResponse> | null>(null);
   const [addResponse, setAddResponse] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [confirmComment, setConfirm] = useState<boolean>(false);
   const { setError } = useErrorStore();
 
   const fetchComments = async (query: GetCommentsRequest) => {
@@ -92,7 +93,38 @@ const useComment = () => {
     }
   };
 
-  return { fetchComments, comments, addComment, addResponse, loading };
+  const observeComment = async (email: string) => {
+    const eventSource = new EventSource(
+      `${import.meta.env.VITE_INTRO_API_URL}/comment/observe?email=${email}`
+    );
+
+    eventSource.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      setConfirm(data.confirm);
+      if (data.confirm) {
+        eventSource.close();
+      }
+    };
+
+    eventSource.onerror = (err) => {
+      setError("댓글 확인 실패.");
+      eventSource.close();
+    };
+
+    return () => {
+      eventSource.close();
+    };
+  };
+
+  return {
+    fetchComments,
+    comments,
+    addComment,
+    addResponse,
+    observeComment,
+    confirmComment,
+    loading,
+  };
 };
 
 export default useComment;

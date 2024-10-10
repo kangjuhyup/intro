@@ -11,11 +11,11 @@ import classes from "./Comment.module.css";
 import useList from "../../hook/useList";
 
 interface CommentListProps {
-  refresh: () => void;
+  refresh: boolean;
 }
 
-export const CommentList = ({}: CommentListProps) => {
-  const { listIdx, setListIdx, comments } = useList();
+export const CommentList = ({ refresh }: CommentListProps) => {
+  const { listIdx, setListIdx, comments } = useList(refresh);
 
   return (
     <Container>
