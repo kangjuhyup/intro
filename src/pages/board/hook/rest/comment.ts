@@ -107,7 +107,7 @@ const useComment = () => {
     };
 
     eventSource.onerror = (err) => {
-      setError("댓글 확인 실패.");
+      setError(err.type || "댓글 확인 실패.");
       eventSource.close();
     };
 
