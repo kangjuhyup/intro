@@ -6,6 +6,7 @@ import Profile from "./pages/profile";
 import Career from "./pages/career";
 import Board from "./pages/board";
 import Skill from "./pages/skill";
+import GlobalError from "./common/component/error";
 
 function App() {
   const [links, setLinks] = useState<
@@ -147,6 +148,7 @@ function App() {
           </Container>
         </div>
       </Container>
+      <GlobalError />
     </MantineProvider>
   );
 }

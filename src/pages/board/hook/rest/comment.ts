@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Response from "../../../../common/http/response";
+import useErrorStore from "../../../../store/useError";
 
 interface GetCommentsRequest {
   limit: number;
@@ -30,11 +31,10 @@ const useComment = () => {
     useState<Response<GetCommentsResponse> | null>(null);
   const [addResponse, setAddResponse] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const { setError } = useErrorStore();
 
   const fetchComments = async (query: GetCommentsRequest) => {
     setLoading(true);
-    setError(null);
 
     try {
       const response = await fetch(
@@ -67,7 +67,6 @@ const useComment = () => {
   const addComment = async (body: AddCommentRequest) => {
     setAddResponse(false);
     setLoading(true);
-    setError(null);
     console.log(body);
     try {
       const response = await fetch(
@@ -94,7 +93,7 @@ const useComment = () => {
     }
   };
 
-  return { fetchComments, comments, addComment, addResponse, loading, error };
+  return { fetchComments, comments, addComment, addResponse, loading };
 };
 
 export default useComment;

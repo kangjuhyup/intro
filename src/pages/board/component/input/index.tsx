@@ -14,10 +14,11 @@ import { useEffect } from "react";
 import TooltipInput from "../../../../common/component/input/tooltip";
 import useAvartar from "../../hook/useAvartar";
 import useInput from "../../hook/useInput";
-import classes from "../../../../Input.module.css";
 import { useDisclosure } from "@mantine/hooks";
+import useErrorStore from "../../../../store/useError";
 
 const CommentInput = () => {
+  const { setError } = useErrorStore();
   const { avartarList, combobox } = useAvartar();
   const [opened, { toggle, close }] = useDisclosure(false);
   const {
@@ -97,7 +98,6 @@ const CommentInput = () => {
         </Combobox>
         <TextInput
           w="50vw"
-          classNames={classes}
           value={name || ""}
           label="이름"
           onChange={(e) => setName(e.currentTarget.value)}
@@ -106,7 +106,6 @@ const CommentInput = () => {
       </Group>
       <Group pb={10} gap={10}>
         <TooltipInput
-          classNames={classes}
           label="이메일"
           w="50vw"
           placeholder="이메일을 입력하세요"
@@ -122,18 +121,10 @@ const CommentInput = () => {
           onSelect={(e) => {
             setCompany(e.currentTarget.value);
           }}
-          classNames={classes}
         />
-        {/* <PasswordInput
-          w="30vw"
-          placeholder="댓글 비밀번호"
-          value={pwd || ""}
-          onChange={(e) => setPwd(e.currentTarget.value)}
-        /> */}
       </Group>
       <TextInput
         pb="md"
-        classNames={classes}
         label="메세지"
         value={comment || ""}
         onChange={(e) => setComment(e.currentTarget.value)}
@@ -142,6 +133,10 @@ const CommentInput = () => {
         variant="white"
         color="dark"
         onClick={() => {
+          if (!name) setError("이름을 입력해주세요.");
+          if (!email) setError("이메일을 입력해주세요.");
+          if (!company) setError("소속을 입력해주세요.");
+          if (!comment) setError("메세지를 입력해주세요.");
           if (name && comment && avartar && email && company)
             addComment({
               name,
