@@ -20,7 +20,7 @@ export const CommentList = ({ refresh }: CommentListProps) => {
   return (
     <Container>
       <Pagination
-        total={comments?.count/5 || 0}
+        total={(comments?.count || 0) / 5}
         value={listIdx}
         onChange={setListIdx}
         size="md"
