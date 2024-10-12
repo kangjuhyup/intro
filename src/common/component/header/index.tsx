@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import classes from "./Header.module.css";
 
 interface HeaderProps {
-  links: { label: string; scroll: () => any }[];
+  links: { label: string; scroll: (params?: any) => void }[];
 }
 
 const Header = ({ links }: HeaderProps) => {
@@ -19,7 +19,7 @@ const Header = ({ links }: HeaderProps) => {
           onClick={(event) => {
             console.log("Click");
             event.preventDefault();
-            scroll();
+            link.scroll();
           }}
         >
           {link.label}
