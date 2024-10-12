@@ -47,7 +47,12 @@ const Header = ({ links }: HeaderProps) => {
         </Group>
         <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
 
-        <ActionIcon color="gray" onClick={toggleColorScheme}>
+        <ActionIcon
+          autoContrast
+          variant="default"
+          color="var(--mantine-color-body)"
+          onClick={toggleColorScheme}
+        >
           {colorScheme === "dark" ? <IconSun /> : <IconMoon />}
         </ActionIcon>
       </Container>

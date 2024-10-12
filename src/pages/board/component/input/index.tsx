@@ -1,6 +1,6 @@
 import {
+  ActionIcon,
   Avatar,
-  Button,
   Combobox,
   Container,
   Dialog,
@@ -16,6 +16,7 @@ import useAvartar from "../../hook/useAvartar";
 import useInput from "../../hook/useInput";
 import { useDisclosure } from "@mantine/hooks";
 import useErrorStore from "../../../../store/useError";
+import { IconSend } from "@tabler/icons-react";
 
 interface CommentInputProps {
   onConfirm: () => void;
@@ -144,10 +145,11 @@ const CommentInput = ({ onConfirm }: CommentInputProps) => {
         value={comment || ""}
         onChange={(e) => setComment(e.currentTarget.value)}
       />{" "}
-      <Button
+      <ActionIcon
         loading={loading}
-        variant="white"
-        color="dark"
+        variant="default"
+        w={60}
+        h={30}
         onClick={() => {
           if (!name || name.length === 0) {
             setError("이름을 입력해주세요.");
@@ -179,8 +181,8 @@ const CommentInput = ({ onConfirm }: CommentInputProps) => {
             });
         }}
       >
-        메세지 보내기
-      </Button>
+        <IconSend />
+      </ActionIcon>
       <Dialog
         opened={opened}
         withCloseButton

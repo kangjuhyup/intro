@@ -57,9 +57,13 @@ const CareerTimeline = forwardRef<HTMLDivElement, CarrerTimelineProps>(
             </Text>
             <Text size="sm">{c.role}</Text>
             <List
-              withPadding
               icon={
-                <ThemeIcon color="dimmed" size={24} radius="xl">
+                <ThemeIcon
+                  variant="default"
+                  // color="var(--mantine-color-body)"
+                  size={12}
+                  radius="xl"
+                >
                   <IconCircleDashedCheck
                     style={{ width: rem(16), height: rem(16) }}
                   />
@@ -67,7 +71,11 @@ const CareerTimeline = forwardRef<HTMLDivElement, CarrerTimelineProps>(
               }
             >
               {c.detail.map((d) => {
-                return <List.Item>{d}</List.Item>;
+                return (
+                  <List.Item pt={5}>
+                    <Text size="xs">{d}</Text>
+                  </List.Item>
+                );
               })}
             </List>
           </Timeline.Item>
