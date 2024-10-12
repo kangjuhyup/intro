@@ -4,6 +4,8 @@ import {
   Burger,
   ActionIcon,
   useMantineColorScheme,
+  Box,
+  Collapse,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
@@ -15,7 +17,7 @@ interface HeaderProps {
 }
 
 const Header = ({ links }: HeaderProps) => {
-  const [opened, { toggle }] = useDisclosure(false);
+  const [opened, { toggle, close }] = useDisclosure(false);
   const [items, setItems] = useState<JSX.Element[]>([]);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   useEffect(() => {
@@ -25,9 +27,9 @@ const Header = ({ links }: HeaderProps) => {
           key={link.label}
           className={classes.link}
           onClick={(event) => {
-            console.log("Click");
             event.preventDefault();
             link.scroll();
+            close();
           }}
         >
           {link.label}
@@ -44,10 +46,16 @@ const Header = ({ links }: HeaderProps) => {
           {items}
         </Group>
         <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+
         <ActionIcon color="gray" onClick={toggleColorScheme}>
           {colorScheme === "dark" ? <IconSun /> : <IconMoon />}
         </ActionIcon>
       </Container>
+      <Collapse in={opened} transitionTimingFunction="linear">
+        <Box p={10} w="100%" bg="var(--mantine-color-body)">
+          {items}
+        </Box>
+      </Collapse>
     </header>
   ) : (
     <></>
