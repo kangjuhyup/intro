@@ -73,7 +73,7 @@ const CommentInput = ({ onConfirm }: CommentInputProps) => {
   ));
 
   return (
-    <Container>
+    <Container pt={20}>
       <Group gap={10}>
         <Combobox
           store={combobox}
