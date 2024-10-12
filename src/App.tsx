@@ -16,17 +16,12 @@ function App() {
     }[]
   >([]);
 
-  const [currentSectionIndex, setCurrentSectionIndex] = useState(0); // 현재 섹션의 인덱스
-
   // 각 섹션으로 스크롤하기 위한 훅
   const { scrollIntoView: scrollToProfile, targetRef: profileRef } =
     useScrollIntoView<HTMLDivElement>({
       offset: 60,
       cancelable: false,
       duration: 800,
-      onScrollFinish: () => {
-        setCurrentSectionIndex(0);
-      },
     });
 
   const { scrollIntoView: scrollToSkill, targetRef: skillRef } =
@@ -34,9 +29,6 @@ function App() {
       offset: 60,
       cancelable: false,
       duration: 800,
-      onScrollFinish: () => {
-        setCurrentSectionIndex(1);
-      },
     });
 
   const { scrollIntoView: scrollToCareer, targetRef: careerRef } =
@@ -44,9 +36,6 @@ function App() {
       offset: 60,
       cancelable: false,
       duration: 800,
-      onScrollFinish: () => {
-        setCurrentSectionIndex(2);
-      },
     });
 
   const { scrollIntoView: scrollToBoard, targetRef: boardRef } =
@@ -54,9 +43,6 @@ function App() {
       offset: 60,
       cancelable: false,
       duration: 800,
-      onScrollFinish: () => {
-        setCurrentSectionIndex(3);
-      },
     });
 
   // 섹션 목록을 설정

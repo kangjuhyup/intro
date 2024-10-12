@@ -5,7 +5,6 @@ import {
   Container,
   Dialog,
   Group,
-  Indicator,
   InputBase,
   Select,
   Text,
