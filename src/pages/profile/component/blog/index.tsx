@@ -1,15 +1,7 @@
-import {
-  Box,
-  Container,
-  Grid,
-  List,
-  Loader,
-  Pagination,
-  Text,
-} from "@mantine/core";
+import { Container, Grid, List, Loader, Pagination, Text } from "@mantine/core";
 import useMedium from "../../hook/rest/medium";
 import { useEffect, useState } from "react";
-import { IconBook, IconBrandBlogger, IconPencil } from "@tabler/icons-react";
+import { IconBook, IconBrandBlogger } from "@tabler/icons-react";
 import classes from "../../Profile.module.css";
 function Blog() {
   const { posts, fetchPosts, loading } = useMedium();
@@ -28,8 +20,16 @@ function Blog() {
         {posts?.data?.article
           .slice((idx - 1) * 5, (idx - 1) * 5 + 5)
           .map((posts) => (
-            <List.Item key={posts.title} icon={<IconBook />}>
-              <Text truncate="end" component="a" href={posts.link} inline>
+            <List.Item
+              style={{
+                whiteSpace: "nowrap", // 텍스트를 한 줄로 유지
+                overflow: "hidden", // 컨테이너를 넘어가는 텍스트 숨김
+                textOverflow: "ellipsis",
+              }}
+              key={posts.title}
+              icon={<IconBook />}
+            >
+              <Text size="sm" truncate="end" component="a" href={posts.link}>
                 {posts.title}
               </Text>
             </List.Item>

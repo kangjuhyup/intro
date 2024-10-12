@@ -1,9 +1,4 @@
-import {
-  Container,
-  MantineProvider,
-  Switch,
-  useMantineColorScheme,
-} from "@mantine/core";
+import { Container, MantineProvider } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { useScrollIntoView } from "@mantine/hooks";
 import Header from "./common/component/header";
