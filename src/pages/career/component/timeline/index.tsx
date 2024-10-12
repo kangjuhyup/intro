@@ -1,16 +1,14 @@
-import { Timeline, Text } from "@mantine/core";
+import { Timeline, Text, List, rem, ThemeIcon } from "@mantine/core";
 import { useEffect, useState, forwardRef } from "react";
 import classes from "./Timeline.module.css";
+import { IconCircleDashedCheck } from "@tabler/icons-react";
 
 interface CarrerTimelineProps {
   carrer: {
     name: string;
     time: string;
     role: string;
-    detail: {
-      title: string;
-      description: string;
-    }[];
+    detail: string[];
   }[];
 }
 
@@ -57,7 +55,21 @@ const CareerTimeline = forwardRef<HTMLDivElement, CarrerTimelineProps>(
             <Text color="dimmed" size="sm">
               {c.time}
             </Text>
-            <Text>{c.role}</Text>
+            <Text size="sm">{c.role}</Text>
+            <List
+              withPadding
+              icon={
+                <ThemeIcon color="dimmed" size={24} radius="xl">
+                  <IconCircleDashedCheck
+                    style={{ width: rem(16), height: rem(16) }}
+                  />
+                </ThemeIcon>
+              }
+            >
+              {c.detail.map((d) => {
+                return <List.Item>{d}</List.Item>;
+              })}
+            </List>
           </Timeline.Item>
         ))}
       </Timeline>

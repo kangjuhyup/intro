@@ -1,4 +1,9 @@
-import { Container, MantineProvider } from "@mantine/core";
+import {
+  Container,
+  MantineProvider,
+  Switch,
+  useMantineColorScheme,
+} from "@mantine/core";
 import { useEffect, useState } from "react";
 import { useScrollIntoView } from "@mantine/hooks";
 import Header from "./common/component/header";
@@ -63,45 +68,23 @@ function App() {
 
   return (
     <MantineProvider defaultColorScheme="dark">
-      <Container w="100vw">
+      <Container pl={0} pr={0}>
         <Header links={links} />
-        <div ref={profileRef}>
-          <Container>
-            <Profile />
-          </Container>
-        </div>
-        <div
-          style={{
-            height: "100vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          ref={skillRef}
-        >
-          <Container>
-            <Skill />
-          </Container>
-        </div>
-        <div
-          style={{
-            height: "100vh",
-          }}
-          ref={careerRef}
-        >
-          <Container>
-            <Career />
-          </Container>
-        </div>
-        <div ref={boardRef}>
-          <Container>
-            <Board />
-          </Container>
-        </div>
+        <Container ref={profileRef} pt={100} pl={0} pr={0} pb={100}>
+          <Profile />
+        </Container>
+        <Container ref={skillRef} pl={0} pr={0} pb={100}>
+          <Skill />
+        </Container>
+        <Container ref={careerRef} pl={0} pr={0} pb={100}>
+          <Career />
+        </Container>
+        <Container ref={boardRef} pl={0} pr={0} pb={100}>
+          <Board />
+        </Container>
       </Container>
       <GlobalError />
     </MantineProvider>
   );
 }
-
 export default App;

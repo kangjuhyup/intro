@@ -1,7 +1,15 @@
-import { Container, Grid, List, Loader, Pagination } from "@mantine/core";
+import {
+  Box,
+  Container,
+  Grid,
+  List,
+  Loader,
+  Pagination,
+  Text,
+} from "@mantine/core";
 import useMedium from "../../hook/rest/medium";
 import { useEffect, useState } from "react";
-import { IconBrandBlogger } from "@tabler/icons-react";
+import { IconBook, IconBrandBlogger, IconPencil } from "@tabler/icons-react";
 import classes from "../../Profile.module.css";
 function Blog() {
   const { posts, fetchPosts, loading } = useMedium();
@@ -20,8 +28,10 @@ function Blog() {
         {posts?.data?.article
           .slice((idx - 1) * 5, (idx - 1) * 5 + 5)
           .map((posts) => (
-            <List.Item key={posts.title}>
-              <a href={posts.link}>{posts.title}</a>
+            <List.Item key={posts.title} icon={<IconBook />}>
+              <Text truncate="end" component="a" href={posts.link} inline>
+                {posts.title}
+              </Text>
             </List.Item>
           ))}
       </List>
@@ -42,6 +52,7 @@ function Blog() {
             onChange={setListIdx}
             pb="xs"
             withControls={false}
+            pt={20}
           />
         </>
       ) : (

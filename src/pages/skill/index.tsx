@@ -52,13 +52,12 @@ function Skill() {
   ));
 
   return (
-    <Container w="80vw">
+    <Container w="100vw">
       <Title order={2}>기술</Title>
       <Carousel
         slideSize={
           mobile ? { base: "100%", sm: "1000%" } : { base: "25%", sm: "25%" }
         }
-        // slideGap={{ base: rem(2), sm: "xl" }}
         align="start"
         slidesToScroll={mobile ? 1 : 4}
       >
