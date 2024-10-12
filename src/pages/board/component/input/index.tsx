@@ -5,6 +5,7 @@ import {
   Container,
   Dialog,
   Group,
+  Indicator,
   InputBase,
   Select,
   Text,
@@ -40,6 +41,7 @@ const CommentInput = ({ onConfirm }: CommentInputProps) => {
     avartar,
     observeComment,
     confirmComment,
+    loading,
   } = useInput();
 
   useEffect(() => {
@@ -52,6 +54,11 @@ const CommentInput = ({ onConfirm }: CommentInputProps) => {
       observeComment(email);
     }
   }, [addResponse]);
+
+  useEffect(() => {
+    console.log("company =>");
+    console.log(company);
+  }, [company]);
 
   useEffect(() => {
     console.log(confirmComment);
@@ -120,9 +127,7 @@ const CommentInput = ({ onConfirm }: CommentInputProps) => {
           data={["크립토", "캐리버스", "더즌", "기타"]}
           placeholder="선택하세요."
           label="소속"
-          onSelect={(e) => {
-            setCompany(e.currentTarget.value);
-          }}
+          onChange={setCompany}
         />
       </Group>
       <TooltipInput
@@ -141,13 +146,30 @@ const CommentInput = ({ onConfirm }: CommentInputProps) => {
         onChange={(e) => setComment(e.currentTarget.value)}
       />{" "}
       <Button
+        loading={loading}
         variant="white"
         color="dark"
         onClick={() => {
-          if (!name) setError("이름을 입력해주세요.");
-          if (!email) setError("이메일을 입력해주세요.");
-          if (!company) setError("소속을 입력해주세요.");
-          if (!comment) setError("메세지를 입력해주세요.");
+          if (!name || name.length === 0) {
+            setError("이름을 입력해주세요.");
+            return;
+          }
+          if (!email || email.length === 0) {
+            setError("이메일을 입력해주세요.");
+            return;
+          }
+          if (!company || company.length === 0) {
+            setError("소속을 입력해주세요.");
+            return;
+          }
+          if (!comment || comment.length === 0) {
+            setError("메세지를 입력해주세요.");
+            return;
+          }
+          if (loading) {
+            setError("인증메일 전송중이에요. 잠시 기다려주세요.");
+            return;
+          }
           if (name && comment && avartar && email && company)
             addComment({
               name,

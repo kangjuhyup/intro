@@ -9,7 +9,7 @@ const useInput = () => {
   const [avartar, setAvartar] = useState<string | null>();
   const [comment, setComment] = useState<string | null>();
 
-  const { addComment, addResponse, observeComment, confirmComment } =
+  const { addComment, addResponse, observeComment, confirmComment, loading } =
     useComment();
 
   return {
@@ -29,6 +29,7 @@ const useInput = () => {
     addResponse,
     observeComment,
     confirmComment,
+    loading,
   };
 };
 export default useInput;

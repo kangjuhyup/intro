@@ -9,7 +9,7 @@ function Board() {
     console.log("trigger => ", trigger);
   }, [trigger]);
   return (
-    <Container id="board" h="100vh">
+    <Container id="board">
       <Title order={2} mb="lg">
         동료 메세지
       </Title>
